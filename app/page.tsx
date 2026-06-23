@@ -306,27 +306,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div style={heroStats} className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-6 border-b relative z-10 ${dark ? 'border-gray-800/30' : 'border-gray-200'}`}>
-        {[
-          { value: '2+', label: 'Happy\nClients' },
-          { value: '2+', label: 'Certificates\nEarned' },
-          { value: '3+', label: 'Fields of\nExpertise' },
-          { value: '100%', label: 'Client\nSatisfaction' },
-        ].map((stat, i) => (
-          <div key={i} className={`flex items-center gap-3 md:gap-4 ${i === 1 || i === 2 ? 'md:justify-center' : ''} ${i === 3 ? 'md:justify-between' : ''}`}>
-            {i === 0 && <div className="hidden sm:block"><DotCluster /></div>}
-            <div className="flex items-center gap-2">
-              <div className={`text-2xl md:text-3xl font-bold ${dark ? 'text-white' : 'text-gray-900'}`}>{stat.value}</div>
-              <div className={`text-[10px] font-medium uppercase leading-tight tracking-wider ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
-                {stat.label.split('\n').map((line, j) => <span key={j}>{line}{j === 0 && <br/>}</span>)}
-              </div>
-            </div>
-            {i === 3 && <div className="hidden sm:block"><DotCluster /></div>}
-          </div>
-        ))}
-      </div>
-    </div>
+    
   </section>
   )
 }
