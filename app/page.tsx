@@ -302,7 +302,7 @@ const Hero = () => {
         </div>
 
         <div style={heroImg} className="hidden md:block w-[320px] lg:w-[400px] shrink-0 z-10">
-          <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full aspect-[4/5] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
+          <img src="/rebecca-hero-black.png" alt="Rebecca Abebe" className="object-cover w-full aspect-[4/5] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
         </div>
       </div>
 
@@ -670,7 +670,7 @@ const FooterCTA = () => {
         </div>
       </div>
       <div className="hidden lg:flex absolute right-10 bottom-10 w-[240px] h-[320px] items-end pointer-events-none">
-        <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-3xl shadow-xl border-4 border-white/5 opacity-80" />
+        <img src="/rebecca-hero-black.png" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-3xl shadow-xl border-4 border-white/5 opacity-80" />
       </div>
     </div>
   </section>
