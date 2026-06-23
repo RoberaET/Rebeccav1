@@ -355,20 +355,15 @@ const SectionHeader = ({ title, desc }: { title: string, desc: string }) => {
 
 // ─── TikTok Embed Component ───────────────────────────────────────────────────
 const TikTokEmbed = ({ videoId }: { videoId: string }) => {
-  useEffect(() => {
-    if (!document.getElementById('tiktok-embed-script')) {
-      const script = document.createElement('script')
-      script.id = 'tiktok-embed-script'
-      script.src = 'https://www.tiktok.com/embed.js'
-      script.async = true
-      document.body.appendChild(script)
-    }
-  }, [])
   return (
-    <div className="flex justify-center w-full max-w-full overflow-hidden rounded-3xl shadow-lg border border-gray-200/20">
-      <blockquote className="tiktok-embed m-0 w-full" cite={`https://www.tiktok.com/@golden.key.et/video/${videoId}`} data-video-id={videoId} style={{ maxWidth: '605px', minWidth: '100%' }}>
-        <section></section>
-      </blockquote>
+    <div className="flex justify-center w-full max-w-full overflow-hidden rounded-3xl shadow-lg border border-gray-200/20 bg-black/5 dark:bg-white/5">
+      <iframe
+        src={`https://www.tiktok.com/embed/v2/${videoId}`}
+        className="w-full h-[600px] sm:h-[720px] max-w-[605px] rounded-2xl"
+        frameBorder="0"
+        allow="encrypted-media;"
+        allowFullScreen
+      ></iframe>
     </div>
   )
 }
