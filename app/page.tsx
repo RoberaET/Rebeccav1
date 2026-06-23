@@ -525,7 +525,7 @@ const EducationAndCertificates = () => {
         </h2>
         <div className="grid grid-cols-1 gap-6">
           {[
-            { name: 'Digital Marketing Certification', issuer: 'HubSpot Academy', desc: 'Gained practical knowledge in digital marketing strategy, content creation, social media marketing, lead generation, customer journey optimization, SEO, and marketing analytics. Developed skills in planning, creating, managing, and optimizing data-driven campaigns that support business growth and customer acquisition.' },
+            { name: 'Digital Marketing Certification', issuer: 'HubSpot Academy', desc: 'Gained practical knowledge in digital marketing strategy, content creation, social media marketing, lead generation, customer journey optimization, SEO, and marketing analytics. Developed skills in planning, creating, managing, and optimizing data-driven campaigns that support business growth and customer acquisition.', link: 'https://app-eu1.hubspot.com/academy/achievements/tb36tngp/en/1/rebika-abebe/digital-marketing-certified' },
             { name: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', desc: 'Completed comprehensive training in digital marketing, including SEO, SEM, social media marketing, content marketing, email marketing, web analytics, and online advertising. Developed skills in creating effective digital marketing strategies to grow brand awareness and customer engagement.', link: 'https://skillshop.exceedlms.com/student/award/3Zw5Cq2V7V3Dnwf96wzTBwTt' },
           ].map((cert, i) => {
             const { ref, style } = useScrollReveal<HTMLDivElement>(i * 150)
