@@ -310,9 +310,9 @@ const Hero = () => {
       <div style={heroStats} className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-6 border-b relative z-10 ${dark ? 'border-gray-800/30' : 'border-gray-200'}`}>
         {[
           { value: '2+', label: 'Happy\nClients' },
-          { value: '3+', label: 'Certificates\nEarned' },
+          { value: '2+', label: 'Certificates\nEarned' },
           { value: '3+', label: 'Fields of\nExpertise' },
-          { value: '24/7', label: 'Support\nAvailable' },
+          { value: '100%', label: 'Client\nSatisfaction' },
         ].map((stat, i) => (
           <div key={i} className={`flex items-center gap-3 md:gap-4 ${i === 1 || i === 2 ? 'md:justify-center' : ''} ${i === 3 ? 'md:justify-between' : ''}`}>
             {i === 0 && <div className="hidden sm:block"><DotCluster /></div>}
@@ -472,24 +472,30 @@ const EducationAndCertificates = () => {
         </h2>
         <div className="space-y-10">
           {[
-            { title: 'Digital Marketing Certificate', school: 'Qiyas Digital Marketing', desc: 'Creative digital marketer and designer with a focus on photo editing, graphic design, and content creation. I help brands grow through visuals that are clean, modern, and effective.' },
-            { title: 'Nursing', school: 'Kea-Med Medical College', desc: '' },
-            { title: 'Fashion Design', school: 'Fashtex Design School', desc: '' },
+            { title: 'Digital Marketing Certificate', school: 'Qiyas Digital Marketing', desc: 'Creative digital marketer and designer with a focus on photo editing, graphic design, and content creation. I help brands grow through visuals that are clean, modern, and effective.', completed: false },
+            { title: 'Nursing', school: 'Kea-Med Medical College', desc: '', completed: true },
+            { title: 'Fashion Design', school: 'Fashtex Design School', desc: '', completed: true },
           ].map((item, i) => {
             const { ref, style } = useSlideReveal<HTMLDivElement>(i * 150, 'left')
             return (
-              <div ref={ref} style={style} key={i} className="relative pl-8 border-l-2 border-emerald-500/40">
-                <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-emerald-500 border-2 border-emerald-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-[8px] font-bold">✓</span>
+              <div ref={ref} style={style} key={i} className={`relative pl-8 border-l-2 ${item.completed ? 'border-emerald-500/40' : 'border-amber-500/40'}`}>
+                <div className={`absolute -left-[9px] top-1.5 w-4 h-4 border-2 rounded-full flex items-center justify-center ${item.completed ? 'bg-emerald-500 border-emerald-400' : 'bg-amber-500 border-amber-400'}`}>
+                  <span className="text-white text-[8px] font-bold">{item.completed ? '✓' : '…'}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <div>
                     <h4 className={`text-lg font-semibold ${heading}`}>{item.title}</h4>
                     <p className="text-red-500 text-sm font-medium mt-0.5">{item.school}</p>
                   </div>
-                  <span className="w-fit text-emerald-500 text-xs bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full whitespace-nowrap flex items-center gap-1">
-                    ✓ Completed
-                  </span>
+                  {item.completed ? (
+                    <span className="w-fit text-emerald-500 text-xs bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full whitespace-nowrap flex items-center gap-1">
+                      ✓ Completed
+                    </span>
+                  ) : (
+                    <span className="w-fit text-amber-500 text-xs bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full whitespace-nowrap flex items-center gap-1">
+                      In Progress
+                    </span>
+                  )}
                 </div>
                 {item.desc && <p className={`text-sm leading-relaxed max-w-2xl ${body}`}>{item.desc}</p>}
               </div>
