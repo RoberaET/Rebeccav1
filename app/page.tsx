@@ -271,8 +271,8 @@ const Hero = () => {
           style={{ WebkitTextStroke: `2px ${dark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)'}`, color: 'transparent' }}>RBCABE</span>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-between relative z-10 mt-8 md:mt-0">
-        <div style={heroText} className="pt-4 md:pt-12 max-w-xl text-center md:text-left z-20">
+      <div className="flex flex-col md:flex-row items-center justify-between relative z-10 mt-8 md:mt-0 gap-8 xl:gap-16">
+        <div style={heroText} className="pt-4 max-w-xl text-center md:text-left z-20">
           <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold mb-6 leading-[1.2] tracking-tight">
             <span className={dark ? 'text-white' : 'text-gray-900'}>Turning </span>
             <span className="text-red-600 border border-red-600/50 px-2 py-0 inline-block relative mx-1">
@@ -301,8 +301,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div style={heroImg} className="hidden md:flex absolute right-0 top-16 w-[380px] h-[480px] items-end justify-center z-10 pointer-events-none">
-          <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
+        <div style={heroImg} className="hidden md:block w-[320px] lg:w-[400px] shrink-0 z-10">
+          <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full aspect-[4/5] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
         </div>
       </div>
 
