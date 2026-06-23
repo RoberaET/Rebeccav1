@@ -301,7 +301,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div style={heroImg} className="hidden md:flex absolute right-0 -bottom-12 w-[380px] h-[480px] items-end justify-center z-10 pointer-events-none">
+        <div style={heroImg} className="hidden md:flex absolute right-0 top-16 w-[380px] h-[480px] items-end justify-center z-10 pointer-events-none">
           <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
         </div>
       </div>
