@@ -365,8 +365,8 @@ const TikTokEmbed = ({ videoId }: { videoId: string }) => {
     }
   }, [])
   return (
-    <div className="flex justify-center w-full overflow-hidden rounded-3xl shadow-lg border border-gray-200/20">
-      <blockquote className="tiktok-embed m-0 w-full" cite={`https://www.tiktok.com/@golden.key.et/video/${videoId}`} data-video-id={videoId} style={{ maxWidth: '605px', minWidth: '325px' }}>
+    <div className="flex justify-center w-full max-w-full overflow-hidden rounded-3xl shadow-lg border border-gray-200/20">
+      <blockquote className="tiktok-embed m-0 w-full" cite={`https://www.tiktok.com/@golden.key.et/video/${videoId}`} data-video-id={videoId} style={{ maxWidth: '605px', minWidth: '100%' }}>
         <section></section>
       </blockquote>
     </div>
