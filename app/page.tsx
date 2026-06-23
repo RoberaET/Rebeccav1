@@ -268,7 +268,7 @@ const Hero = () => {
       {/* Background Typography */}
       <div className="absolute right-0 top-0 opacity-[0.04] pointer-events-none z-0 hidden md:block">
         <span className="text-[250px] font-black leading-none tracking-tighter"
-          style={{ WebkitTextStroke: `2px ${dark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)'}`, color: 'transparent' }}>YGAR</span>
+          style={{ WebkitTextStroke: `2px ${dark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)'}`, color: 'transparent' }}>RBCABE</span>
       </div>
 
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between relative z-10 mt-8 md:mt-0">
