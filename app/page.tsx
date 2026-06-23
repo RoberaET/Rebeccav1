@@ -356,40 +356,79 @@ const SectionHeader = ({ title, desc }: { title: string, desc: string }) => {
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const Projects = () => {
   const { dark } = useTheme()
-  const projects = [
-    { title: 'Marketing Dashboard', category: 'App Design', lightBg: 'bg-purple-100', gradientFrom: 'from-[#4a2b66]', gradientTo: 'to-[#1b1525]' },
-    { title: 'Payment Dashboard', category: 'Web Design', lightBg: 'bg-rose-100', gradientFrom: 'from-[#6e3952]', gradientTo: 'to-[#1b1525]' },
-    { title: 'Social Connect', category: 'App Design', lightBg: 'bg-pink-100', gradientFrom: 'from-[#8e4555]', gradientTo: 'to-[#1b1525]' },
-    { title: 'Twitch Dashboard', category: 'Web Design', lightBg: 'bg-indigo-100', gradientFrom: 'from-[#4e4277]', gradientTo: 'to-[#1b1525]' },
+  const works = [
+    { type: 'image', src: '/1.jpg', title: 'Content Creation' },
+    { type: 'image', src: '/2.jpg', title: 'Visual Branding' },
+    { type: 'tiktok', src: '/tiktok1.jpg', title: 'TikTok Reel 1', link: 'https://vt.tiktok.com/ZSCRVpHXm/' },
+    { type: 'image', src: '/3.jpg', title: 'Marketing Design' },
+    { type: 'image', src: '/4.jpg', title: 'Graphic Design' },
+    { type: 'image', src: '/5.jpg', title: 'Photo Editing' },
+    { type: 'image', src: '/6.jpg', title: 'Social Media Post' },
+    { type: 'tiktok', src: '/tiktok2.jpg', title: 'TikTok Reel 2', link: 'https://vt.tiktok.com/ZSCRquMpt/' },
+    { type: 'image', src: '/7.jpg', title: 'Brand Identity' },
+    { type: 'image', src: '/8.jpg', title: 'Campaign Graphic' },
+    { type: 'image', src: '/9.jpg', title: 'Engagement Content' },
   ]
   return (
     <section className="px-6 md:px-8 py-16 relative">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
-          title="My Projects"
-          desc="I specialize in digital marketing campaigns, visual content creation, and brand design. Check out some of my recent work."
+          title="My Work"
+          desc="I specialize in digital marketing campaigns, visual content creation, and brand design. Check out some of my recent graphics and social media content."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => {
-            const { ref, style } = useScrollReveal<HTMLDivElement>(index * 100)
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          {works.map((work, index) => {
+            const { ref, style } = useScrollReveal<HTMLAnchorElement & HTMLDivElement>(index * 50)
+            
+            const content = (
+              <>
+                <img src={work.src} alt={work.title} className="w-full h-[250px] md:h-[300px] object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {work.type === 'tiktok' && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-14 h-14 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
+                      <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-1">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="absolute bottom-6 left-6 right-6 z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <h3 className="text-lg font-bold text-white mb-1">{work.title}</h3>
+                  <p className="text-white/70 text-xs flex items-center justify-between">
+                    {work.type === 'tiktok' ? 'Watch on TikTok' : 'View Image'}
+                    <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm text-white">↗</span>
+                  </p>
+                </div>
+              </>
+            )
+
+            if (work.type === 'tiktok') {
+              return (
+                <a
+                  href={work.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ref={ref as any}
+                  style={style}
+                  key={index}
+                  className={`relative block rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group border ${dark ? 'border-white/10' : 'border-gray-200 shadow-sm'}`}
+                >
+                  {content}
+                </a>
+              )
+            }
+
             return (
               <div
-                ref={ref} style={style} key={index}
-                className={`relative h-[280px] rounded-3xl overflow-hidden cursor-pointer group border transition-transform duration-300 hover:scale-[1.02] ${
-                  dark
-                    ? `bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} border-white/5`
-                    : `${project.lightBg} border-gray-200`
-                }`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-300" />
-                <div className="absolute bottom-6 left-6 z-10">
-                  <h3 className={`text-xl font-bold mb-1 ${dark ? 'text-white' : 'text-gray-900'}`}>{project.title}</h3>
-                  <p className={dark ? 'text-white/60 text-xs' : 'text-gray-500 text-xs'}>{project.category}</p>
-                </div>
-                <div className={`absolute bottom-6 right-6 z-10 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 ${
-                  dark ? 'bg-white/10' : 'bg-white/70'
-                }`}>
-                  <span className={dark ? 'text-white text-sm' : 'text-gray-800 text-sm'}>↗</span>
-                </div>
+                ref={ref as any}
+                style={style}
+                key={index}
+                className={`relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group border ${dark ? 'border-white/10' : 'border-gray-200 shadow-sm'}`}
+              >
+                {content}
               </div>
             )
           })}
