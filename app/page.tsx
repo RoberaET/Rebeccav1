@@ -136,7 +136,7 @@ const Header = () => {
         {/* Logo */}
         <a href="#home" onClick={e => handleNav(e, '#home')} className="flex items-center gap-2 cursor-pointer z-50">
           <LogoDotCluster />
-          <span className="text-lg font-bold text-red-600 tracking-wide">Rebecca Abebe</span>
+          <span className="text-lg font-bold text-red-600 tracking-wide">REBECCA ABEBE</span>
         </a>
 
         {/* Desktop Nav */}
@@ -649,7 +649,7 @@ const Footer = () => {
       <div className="max-w-sm">
         <div className="flex items-center gap-2 mb-4">
           <LogoDotCluster />
-          <span className="text-xl font-bold text-red-600">Rebecca Abebe</span>
+          <span className="text-xl font-bold text-red-600">REBECCA ABEBE</span>
         </div>
         <p className={`text-xs leading-relaxed mb-4 ${ dark ? 'text-gray-500' : 'text-gray-400'}`}>
           Creative digital marketer and designer focused on photo editing, graphic design, and content creation.
