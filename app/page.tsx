@@ -301,8 +301,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div style={heroImg} className="hidden md:flex absolute -right-16 -bottom-12 w-[450px] h-[550px] items-end justify-center z-10 pointer-events-none">
-          <img src="/girl.png" alt="3D Girl Character" className="object-contain h-full drop-shadow-2xl mix-blend-screen opacity-90" />
+        <div style={heroImg} className="hidden md:flex absolute right-0 -bottom-12 w-[380px] h-[480px] items-end justify-center z-10 pointer-events-none">
+          <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/10" />
         </div>
       </div>
 
@@ -669,8 +669,8 @@ const FooterCTA = () => {
           </button>
         </div>
       </div>
-      <div className="hidden lg:flex absolute right-10 bottom-0 w-[300px] h-[400px] items-end pointer-events-none">
-        <img src="/girl.png" alt="3D Girl Character" className="object-contain h-full mix-blend-screen opacity-90" />
+      <div className="hidden lg:flex absolute right-10 bottom-10 w-[240px] h-[320px] items-end pointer-events-none">
+        <img src="/rebecca-hero.jpg" alt="Rebecca Abebe" className="object-cover w-full h-full rounded-3xl shadow-xl border-4 border-white/5 opacity-80" />
       </div>
     </div>
   </section>
