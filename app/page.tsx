@@ -403,6 +403,8 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start justify-center">
              <TikTokEmbed videoId="7654637007133560085" />
              <TikTokEmbed videoId="7649686348143709460" />
+             <TikTokEmbed videoId="7654065505824705799" />
+             <TikTokEmbed videoId="7654067077954702599" />
           </div>
         </div>
       </div>
