@@ -353,18 +353,36 @@ const SectionHeader = ({ title, desc }: { title: string, desc: string }) => {
   )
 }
 
+// ─── TikTok Embed Component ───────────────────────────────────────────────────
+const TikTokEmbed = ({ videoId }: { videoId: string }) => {
+  useEffect(() => {
+    if (!document.getElementById('tiktok-embed-script')) {
+      const script = document.createElement('script')
+      script.id = 'tiktok-embed-script'
+      script.src = 'https://www.tiktok.com/embed.js'
+      script.async = true
+      document.body.appendChild(script)
+    }
+  }, [])
+  return (
+    <div className="flex justify-center w-full overflow-hidden rounded-3xl shadow-lg border border-gray-200/20">
+      <blockquote className="tiktok-embed m-0 w-full" cite={`https://www.tiktok.com/@golden.key.et/video/${videoId}`} data-video-id={videoId} style={{ maxWidth: '605px', minWidth: '325px' }}>
+        <section></section>
+      </blockquote>
+    </div>
+  )
+}
+
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const Projects = () => {
   const { dark } = useTheme()
   const works = [
     { type: 'image', src: '/1.jpg', title: 'Content Creation' },
     { type: 'image', src: '/2.jpg', title: 'Visual Branding' },
-    { type: 'tiktok', src: '/tiktok1.jpg', title: 'TikTok Reel 1', link: 'https://vt.tiktok.com/ZSCRVpHXm/' },
     { type: 'image', src: '/3.jpg', title: 'Marketing Design' },
     { type: 'image', src: '/4.jpg', title: 'Graphic Design' },
     { type: 'image', src: '/5.jpg', title: 'Photo Editing' },
     { type: 'image', src: '/6.jpg', title: 'Social Media Post' },
-    { type: 'tiktok', src: '/tiktok2.jpg', title: 'TikTok Reel 2', link: 'https://vt.tiktok.com/ZSCRquMpt/' },
     { type: 'image', src: '/7.jpg', title: 'Brand Identity' },
     { type: 'image', src: '/8.jpg', title: 'Campaign Graphic' },
     { type: 'image', src: '/9.jpg', title: 'Engagement Content' },
@@ -374,64 +392,43 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="My Work"
-          desc="I specialize in digital marketing campaigns, visual content creation, and brand design. Check out some of my recent graphics and social media content."
+          desc="I specialize in digital marketing campaigns, visual content creation, and brand design. Check out some of my recent graphics."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {works.map((work, index) => {
-            const { ref, style } = useScrollReveal<HTMLAnchorElement & HTMLDivElement>(index * 50)
+            const { ref, style } = useScrollReveal<HTMLDivElement>(index * 50)
             
-            const content = (
-              <>
-                <img src={work.src} alt={work.title} className="w-full h-[250px] md:h-[300px] object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {work.type === 'tiktok' && (
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-14 h-14 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
-                      <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-1">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
-                
-                <div className="absolute bottom-6 left-6 right-6 z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <h3 className="text-lg font-bold text-white mb-1">{work.title}</h3>
-                  <p className="text-white/70 text-xs flex items-center justify-between">
-                    {work.type === 'tiktok' ? 'Watch on TikTok' : 'View Image'}
-                    <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm text-white">↗</span>
-                  </p>
-                </div>
-              </>
-            )
-
-            if (work.type === 'tiktok') {
-              return (
-                <a
-                  href={work.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ref={ref as any}
-                  style={style}
-                  key={index}
-                  className={`relative block rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group border ${dark ? 'border-white/10' : 'border-gray-200 shadow-sm'}`}
-                >
-                  {content}
-                </a>
-              )
-            }
-
             return (
               <div
-                ref={ref as any}
+                ref={ref}
                 style={style}
                 key={index}
                 className={`relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group border ${dark ? 'border-white/10' : 'border-gray-200 shadow-sm'}`}
               >
-                {content}
+                <img src={work.src} alt={work.title} className="w-full h-[250px] md:h-[300px] object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="absolute bottom-6 left-6 right-6 z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <h3 className="text-lg font-bold text-white mb-1">{work.title}</h3>
+                  <p className="text-white/70 text-xs flex items-center justify-between">
+                    View Image
+                    <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm text-white">↗</span>
+                  </p>
+                </div>
               </div>
             )
           })}
+        </div>
+
+        <div className="mt-20 md:mt-28">
+          <SectionHeader
+            title="Featured Campaigns"
+            desc="Take a deeper look at my viral TikTok campaigns and video content strategies that drive massive engagement."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start justify-center">
+             <TikTokEmbed videoId="7654637007133560085" />
+             <TikTokEmbed videoId="7649686348143709460" />
+          </div>
         </div>
       </div>
     </section>
